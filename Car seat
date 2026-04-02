@@ -1,0 +1,14 @@
+# Complete the if statements to display the correct child seat for a childs age
+years = int(input("Enter your childs age in years: "))
+
+if years <= 3:
+    print("Rear Facing Car Seat")
+
+elif years <= 7:
+    print("Forward Facing Car Seat")
+
+elif years <= 12:
+    print("Booster Seat")
+
+else:
+    print("Always wear a seatbelt")

@@ -1,0 +1,20 @@
+playerNumbers = [2, 4, 5, 7, 8, 11, 13, 14, 16, 17, 18]
+teams = ["Dry Ice", "Deep Blue", "Pink Unicorns", "Beez", "Red Panthers"]
+playerInfo = ["Jepperson", "Raven", 11, 3.5]
+scores = [["Raven", 3], ["Sarah", 2], ["Addie", 5]]
+
+# Add another player number
+playerNumbers.append(19)
+
+# Add another score
+scores.append(["Ellie", 1])
+
+# Print number of teams
+print("Number of Teams:", len(teams))
+
+# Print the second person in scores
+print(scores[1])
+
+# Print all teams
+for team in teams:
+    print(team)

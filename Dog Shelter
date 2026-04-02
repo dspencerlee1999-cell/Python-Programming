@@ -1,0 +1,27 @@
+shelterAnimals = {"dog": 49, "cat": 38, "bunny": 14}
+
+# deep copy (separate dictionary)
+originalShelter = shelterAnimals.copy()
+
+# add 2 dogs
+shelterAnimals["dog"] += 2
+
+# remove 3 cats
+shelterAnimals["cat"] -= 3
+
+# add 2 ferrets
+shelterAnimals["ferret"] = 2
+
+# add 4 snakes
+shelterAnimals["snake"] = 4
+
+# if dogs > 50 print Kennel Full
+if shelterAnimals["dog"] > 50:
+    print("Kennel Full")
+
+# if rat is not a key print No Rats
+if "rat" not in shelterAnimals:
+    print("No Rats")
+
+print("Updated shelterAnimals:", shelterAnimals)
+print("Original originalShelter:", originalShelter)

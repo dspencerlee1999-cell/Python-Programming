@@ -1,0 +1,39 @@
+print("Disney Movie Trivia!")
+print("Answer each question. One point for every correct answer.\n")
+
+score = 0
+
+# Question 1
+answer = input("Which movie features Simba as the main character? ").lower()
+if answer == "the lion king":
+    print("Correct!")
+    score += 1
+else:
+    print("Wrong. The answer is The Lion King.")
+
+# Question 2
+answer = input("\nWhat movie has a snowman named Olaf? ").lower()
+if answer == "frozen":
+    print("Correct!")
+    score += 1
+else:
+    print("Wrong. The answer is Frozen.")
+
+# Question 3
+answer = input("\nIn what movie does Buzz Lightyear appear? ").lower()
+if answer == "toy story":
+    print("Correct!")
+    score += 1
+else:
+    print("Wrong. The answer is Toy Story.")
+
+# Question 4
+answer = input("\nWhich movie features a rat who cooks in Paris? ").lower()
+if answer == "ratatouille":
+    print("Correct!")
+    score += 1
+else:
+    print("Wrong. The answer is Ratatouille.")
+
+# Question 5
+answer = input("\nWhich movie has a princess named Ariel? ").

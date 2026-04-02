@@ -1,0 +1,91 @@
+import random
+
+
+class RockPaperScissors:
+
+    def getUserChoice(self):
+        while True:
+            userChoice = input("Rock, Paper, or Scissors?: ")
+
+            if userChoice == "Rock" or userChoice == "Paper" or userChoice == "Scissors":
+                return userChoice
+            else:
+                print('Sorry, "' + userChoice + '" is not a valid entry.')
+
+    def getCPUChoice(self):
+        choices = ["Rock", "Paper", "Scissors"]
+        return random.choice(choices)
+
+    def pickWinner(self, userChoice, cpuChoice):
+        if userChoice == cpuChoice:
+            return 0
+        elif userChoice == "Rock" and cpuChoice == "Scissors":
+            return 1
+        elif userChoice == "Paper" and cpuChoice == "Rock":
+            return 1
+        elif userChoice == "Scissors" and cpuChoice == "Paper":
+            return 1
+        else:
+            return 2
+
+
+# Main Program
+rps = RockPaperScissors()
+
+print("Welcome to Rock, Paper, Scissors!")
+
+hasError = False
+numUserWins = 0
+numCPUWins = 0
+
+while True:
+    try:
+        hasError = False
+
+        numGames = int(input("How many rounds would you like to play? "))
+
+        while numGames % 2 == 0:
+            print("Sorry, number of games must be odd. Please try again:")
+            numGames = int(input("How many rounds would you like to play? "))
+
+        break
+
+    except ValueError:
+        hasError = True
+        print("Invalid input. Please enter a number.")
+
+
+count = 0
+while count < numGames:
+
+    userChoice = rps.getUserChoice()
+    cpuChoice = rps.getCPUChoice()
+
+    print("Computer chooses " + cpuChoice)
+
+    winner = rps.pickWinner(userChoice, cpuChoice)
+
+    if winner == 0:
+        print("It's a tie! Play again.")
+    elif winner == 1:
+        print("User wins!")
+        numUserWins += 1
+        count += 1
+    elif winner == 2:
+        print("Computer wins!")
+        numCPUWins += 1
+        count += 1
+    else:
+        print("Error in picking winner!")
+
+
+print("\nUser wins: ", numUserWins)
+print("Computer wins: ", numCPUWins)
+
+if numUserWins > numCPUWins:
+    print("The user won!")
+
+if numCPUWins > numUserWins:
+    print("The computer won!")
+
+print("\nThank you for playing!")

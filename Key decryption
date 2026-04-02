@@ -1,0 +1,48 @@
+# variable to store the decryption key
+dKey = 0
+
+# get decryption key
+while True:
+    try:
+        print("Please enter the key used to decrypt the file.")
+        dKey = int(input())
+        break
+
+    except ValueError:
+        print("Please enter a number.")
+        print("Please try again.")
+
+
+# get file and decrypt
+while True:
+    try:
+        print("Please enter the file you would like to decrypt.")
+        fileName = input()
+
+        # open files
+        f = open(fileName, 'r')
+        decryptedFile = open('decrypted.txt', 'w')
+
+        # read and decrypt line by line
+        for line in f:
+            for i in range(len(line)):
+                letter = line[i]
+                chValue = ord(letter)
+                chValue -= dKey
+                letter = chr(chValue)
+                decryptedFile.write(letter)
+
+        break
+
+    except FileNotFoundError:
+        print("File does not exist. Please enter the correct file name.")
+
+    except:
+        print("Error Occured")
+
+
+print("File was decrypted to decrypted.txt")
+
+# close the files
+f.close()
+decryptedFile.close()

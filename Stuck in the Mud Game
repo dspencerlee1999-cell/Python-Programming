@@ -1,0 +1,45 @@
+import random
+
+print("Stuck in the Mud")
+
+dice = [0, 0, 0, 0, 0]   # 5 dice
+score = 0
+
+choice = input("Press r to roll or q to quit: ")
+
+while choice == "r" and len(dice) > 0:
+    # roll only the dice that are not stuck
+    for i in range(len(dice)):
+        dice[i] = random.randint(1, 6)
+
+    # count how many dice got stuck this roll (2 or 5)
+    removed = 0
+    for value in dice:
+        if value == 2 or value == 5:
+            removed += 1
+
+    print("You rolled:", dice, " (" + str(removed) + " dice removed)")
+
+    # add points for dice that are NOT 2 or 5
+    for value in dice:
+        if value != 2 and value != 5:
+            score += value
+
+    print("Score:", score)
+    print()
+
+    # keep only dice that are NOT stuck (remove 2s and 5s)
+    newDice = []
+    for value in dice:
+        if value != 2 and value != 5:
+            newDice.append(0)
+    dice = newDice
+
+    # if all dice are stuck, the round ends automatically
+    if len(dice) == 0:
+        break
+
+    choice = input("Press r to roll or q to quit: ")
+
+print("Round has ended")
+print("Thanks for playing")

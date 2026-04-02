@@ -1,0 +1,30 @@
+# Stress analyzer tool
+# Disclaimer: This quiz was written by a computer science professor and not a person qualified to diagnose stress and anxiety
+# It is meant as a learning exercise to learn counters, not as a diagnosis tool
+
+print("Stress Test")
+print("Take this quiz to see how stressed you are")
+print("Answer the following questions by entering a value from 0 to 5, 0 meaning not at all 5 meaning all the time")
+
+score = 0
+
+question = int(input("I get upset by trivial things, (enter a number 0 - 5)"))
+score += question
+
+question = int(input("I overreact to situations, (enter a number 0 - 5)"))
+score += question
+
+question = int(input("I experience difficulty breathing, (enter a number 0 - 5)"))
+score += question
+
+question = int(input("I feel scared without a good reason, (enter a number 0 - 5)"))
+score += question
+
+if(score >= 15):
+    print("You feel very stressed")
+elif score > 10:
+    print("You are moderately stressed")
+elif score > 5:
+    print("You experience average amount of stress")
+else:
+    print("You are a pretty chill person")

@@ -1,0 +1,26 @@
+# Create a dictionary populated with data
+airports = {
+    "LAX": "Los Angeles International Airport",
+    "SLC": "Salt Lake City International Airport",
+    "DEN": "Denver International Airport"
+}
+
+print("The length is ", len(airports))
+
+# Add JFK
+airports["JFK"] = "John F Kennedy International Airport"
+print("The length is now ", len(airports))
+
+# Add PHX
+airports["PHX"] = "Phoenix Sky Harbor International Airport"
+print("The length is now ", len(airports))
+
+# Add an additional item to the dictionary
+airports["ORD"] = "O'Hare International Airport"
+print("The length is now ", len(airports))
+
+print(airports.get("ORD"))
+print(airports["LAX"])
+
+# Print Phoenix
+print(airports["PHX"])

@@ -1,0 +1,89 @@
+import random
+
+
+class botPlayer:
+
+    def __init__(self):
+        self.life_points = 100
+        self.strength = 0
+
+    def setStrength(self):
+        self.strength = random.randint(1, 20)
+
+    def receiveDamage(self, damage):
+        self.life_points = self.life_points - damage
+        if self.life_points < 0:
+            self.life_points = 0
+
+
+# main program
+print("Welcome to Weber's Battle of the Bots!")
+print()
+
+bot1 = botPlayer()
+bot2 = botPlayer()
+
+while True:
+    print("Bot1 Life Points:", bot1.life_points)
+    print("Bot2 Life Points:", bot2.life_points)
+    print("Bot1 Your Turn!")
+
+    choice = input("Press h to hit, q to quit: ")
+
+    if choice == "q":
+        print()
+        print("Nice battle!")
+
+        if bot1.life_points > bot2.life_points:
+            print("Bot1 wins this round!")
+        elif bot2.life_points > bot1.life_points:
+            print("Bot2 wins this round!")
+        else:
+            print("It was a tie!")
+
+        print("Thanks for playing!")
+        break
+
+    if choice == "h":
+        bot1.setStrength()
+        bot2.setStrength()
+
+        if bot1.strength > bot2.strength:
+            damage = bot1.strength - bot2.strength
+            bot2.receiveDamage(damage)
+            print()
+            print("Bot1 strength:", bot1.strength, end=", ")
+            print("Bot2 strength:", bot2.strength, end=".  ")
+            print("Bot2 has", damage, "points of damage.")
+            print()
+
+        elif bot2.strength > bot1.strength:
+            damage = bot2.strength - bot1.strength
+            bot1.receiveDamage(damage)
+            print()
+            print("Bot1 strength:", bot1.strength, end=", ")
+            print("Bot2 strength:", bot2.strength, end=".  ")
+            print("Bot1 has", damage, "points of damage.")
+            print()
+
+        else:
+            print()
+            print("Bot1 strength:", bot1.strength, end=", ")
+            print("Bot2 strength:", bot2.strength, end=".  ")
+            print("No damage this round.")
+            print()
+
+        if bot1.life_points == 0 or bot2.life_points == 0:
+            print("Bot1 Life Points:", bot1.life_points)
+            print("Bot2 Life Points:", bot2.life_points)
+            print()
+
+            if bot1.life_points > bot2.life_points:
+                print("Bot1 wins the battle!")
+            elif bot2.life_points > bot1.life_points:
+                print("Bot2 wins the battle!")
+            else:
+                print("It was a tie!")
+
+            print("Thanks for playing!")
+            break

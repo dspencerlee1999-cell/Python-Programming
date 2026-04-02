@@ -1,0 +1,30 @@
+print("Welcome to the Weber State University Human Performance Lab!")
+print("Please utilize the following calculator to find your ideal fat burning heart rate and BMI.\n")
+
+
+def get_positive_number(prompt, name):
+    while True:
+        try:
+            value = float(input(prompt))
+            if value <= 0:
+                print(f"Invalid {name} value. Must be positive.")
+            else:
+                return value
+        except ValueError:
+            print(f"Invalid {name} value. Must be a number.")
+
+
+age = get_positive_number("Enter age: ", "age")
+height = get_positive_number("Enter height in inches: ", "inches")
+weight = get_positive_number("Enter weight in pounds: ", "pounds")
+
+fat_burning_heart_rate = (220 - age) * 0.70
+bmi = (703 * weight) / (height ** 2)
+
+print()
+print(f"Age = {age:.0f}")
+print(f"Height = {height}\"")
+print(f"Weight = {weight} pounds")
+print()
+print(f"Fat Burning Heart Rate = {fat_burning_heart_rate:.0f} bpm")
+print(f"Body Mass Index = {bmi:.1f}")

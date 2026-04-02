@@ -1,0 +1,80 @@
+# Dinosaur Park Party Calculator
+
+print("Welcome to the Dinosaur Park Party Planner!")
+
+choice = 0
+
+while choice != 3:
+
+    print("\nSelect party type:")
+    print("1. Birthday Party")
+    print("2. General Admission Group Party")
+    print("3. Quit")
+
+    choice = int(input("Enter choice: "))
+
+    if choice == 1:
+
+        base_price = 120
+        included_guests = 12
+        extra_price = 3
+
+        member = input("\nAre you a park member? (yes/no): ").lower()
+
+        adults = int(input("Number of adults: "))
+        children = int(input("Number of children: "))
+
+        total_guests = adults + children
+
+        if member == "yes":
+            base_price = base_price * 0.9
+
+        extra_guests = 0
+        extra_cost = 0
+
+        if total_guests > included_guests:
+            extra_guests = total_guests - included_guests
+            extra_cost = extra_guests * extra_price
+
+        total_cost = base_price + extra_cost
+
+        print("\nBase party price: $", format(base_price, ".2f"))
+        print("Extra guests:", extra_guests)
+        print("Extra guest cost: $", format(extra_cost, ".2f"))
+        print("\nTotal cost: $", format(total_cost, ".2f"))
+
+    elif choice == 2:
+
+        base_price = 80
+        included_guests = 10
+        extra_price = 4
+
+        member = input("\nAre you a park member? (yes/no): ").lower()
+
+        adults = int(input("Number of adults: "))
+        children = int(input("Number of children: "))
+
+        total_guests = adults + children
+
+        if member == "yes":
+            base_price = base_price * 0.9
+
+        extra_guests = 0
+        extra_cost = 0
+
+        if total_guests > included_guests:
+            extra_guests = total_guests - included_guests
+            extra_cost = extra_guests * extra_price
+
+        total_cost = base_price + extra_cost
+
+        print("\nBase party price: $", format(base_price, ".2f"))
+        print("Extra guests:", extra_guests)
+        print("Extra guest cost: $", format(extra_cost, ".2f"))
+        print("\nTotal cost: $", format(total_cost, ".2f"))
+
+    elif choice == 3:
+        print("\nGoodbye!")
+
+    else:
+        print("\nInvalid choice. Try again.")

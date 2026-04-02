@@ -1,0 +1,45 @@
+import random
+
+print("Welcome to the dice throwing simulator!")
+rolls = int(input("How many dice rolls would you like to simulate? "))
+
+counts = {}  # key = sum (2-12), value = how many times it happened
+
+for i in range(rolls):
+    die1 = random.randint(1, 6)
+    die2 = random.randint(1, 6)
+    total = die1 + die2
+
+    if total not in counts:
+        counts[total] = 1
+    else:
+        counts[total] += 1
+
+print()
+print("DICE ROLLING SIMULATION RESULTS")
+print("Total number of rolls =", rolls)
+print()
+
+# print totals 2 through 12 (even if a number never happened)
+for total in range(2, 13):
+    if total in counts:
+        print(str(total) + ":", counts[total])
+    else:
+        print(str(total) + ":", 0)
+
+print()
+print("***BONUS EXAMPLE ~ This section is not required and only for additional bonus points.***")
+print("DICE ROLLING SIMULATION RESULTS")
+print('Each "*" represents 1% of the total number of rolls.')
+print("Total number of rolls =", rolls)
+print()
+
+# histogram: each * = 1% of total rolls
+for total in range(2, 13):
+    times = counts.get(total, 0)
+    percent = (times / rolls) * 100
+    stars = int(percent)  # 1 star per 1%
+    print(str(total) + ":", "*" * stars)
+
+print()
+print("Thank you for using the dice throwing simulator. Goodbye!")

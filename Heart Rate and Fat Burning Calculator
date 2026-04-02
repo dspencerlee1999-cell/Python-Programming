@@ -1,0 +1,70 @@
+print("Welcome to the Weber State University Human Performance Lab!")
+print("Please utilize the following calculator to find your ideal fat burning heart rate and BMI.")
+print("The program will also store this information in a file you choose so that it can be tracked over time.\n")
+
+
+def get_number(prompt, name):
+    while True:
+        try:
+            value = float(input(prompt))
+            if value <= 0:
+                print(f"Invalid {name} value. Must be positive.")
+            else:
+                return value
+        except ValueError:
+            print(f"Invalid {name} value. Must be a number.")
+
+
+def get_results():
+    age = get_number("Enter age: ", "age")
+    height = get_number("Enter height in inches: ", "inches")
+    weight = get_number("Enter weight in pounds: ", "pounds")
+
+    fbhr = (220 - age) * 0.70
+    bmi = 703 * weight / (height ** 2)
+
+    print()
+    print(f"Age = {age:.0f}")
+    print(f"Height = {height}\"")
+    print(f"Weight = {weight} pounds")
+    print()
+    print(f"Fat Burning Heart Rate = {fbhr:.0f} bpm")
+    print(f"Body Mass Index = {bmi:.1f}")
+    print()
+
+    return f"FBHR: {fbhr:.0f}bpm - BMI {bmi:.1f}\n"
+
+
+while True:
+    print("Select:")
+    print("1. Create a file")
+    print("2. Open a file to add results to")
+    print("3. Read results from file")
+    choice = input()
+
+    if choice == "1":
+        filename = input("Enter the name of the file you would like to create: ")
+        open(filename, "w").close()
+        result = get_results()
+        with open(filename, "a") as file:
+            file.write(result)
+        print("Results added to file.\n")
+
+    elif choice == "2":
+        filename = input("Enter the name of the file you would like to open: ")
+        result = get_results()
+        with open(filename, "a") as file:
+            file.write(result)
+        print("Results added to file.\n")
+
+    elif choice == "3":
+        filename = input("Enter the name of the file you would like to read: ")
+        try:
+            with open(filename, "r") as file:
+                print()
+                print(file.read())
+        except FileNotFoundError:
+            print("File not found.\n")
+
+    else:
+        print("Invalid menu choice.\n")

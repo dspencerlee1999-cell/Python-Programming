@@ -1,0 +1,17 @@
+tictactow = [["O", "O", " "], [" ", "X", " "], ["X", "O", " "]]
+choice = "p"
+
+while choice != "Q" and choice != "q":
+    for r in tictactow:
+        for c in r:
+            print(c, end=" ")
+        print()
+
+    choice = input("Enter the row you want to move (Q to quit): ")
+    if choice != "q" and choice != "Q":
+        row = int(choice)
+        col = int(input("Enter the column: "))
+        tictactow[row][col] = "X"
+
+        if tictactow[0][0] == "X" and tictactow[0][1] == "X" and tictactow[0][2] == "X":
+            print("You Win")

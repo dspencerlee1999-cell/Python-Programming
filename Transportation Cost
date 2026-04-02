@@ -1,0 +1,26 @@
+# Get gas mileage and gas price
+mpg = float(input("How many miles to the gallon does your car get? "))
+gas_price = float(input("What is the current cost of gas? "))
+
+# Area 1
+city1 = input("What is the first area you would like to calculate the cost to? ")
+miles1 = float(input("How many miles is it to your first area from Weber State? "))
+
+# Area 2
+city2 = input("What is the second area you would like to calculate the cost to? ")
+miles2 = float(input("How many miles is it to your second area from Weber State? "))
+
+# Area 3
+city3 = input("What is the third area you would like to calculate the cost to? ")
+miles3 = float(input("How many miles is it to your third area from Weber State? "))
+
+# Calculations
+cost1 = (miles1 / mpg) * gas_price
+cost2 = (miles2 / mpg) * gas_price
+cost3 = (miles3 / mpg) * gas_price
+
+# Output results formatted to two decimals
+print()
+print(f"Driving cost for area 1 {city1}: {cost1:.2f}")
+print(f"Driving cost for area 2 {city2}: {cost2:.2f}")
+print(f"Driving cost for area 3 {city3}: {cost3:.2f}")
